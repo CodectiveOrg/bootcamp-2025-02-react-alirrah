@@ -1,8 +1,8 @@
 export default function countNumbersInArray(array: unknown[]): number {
   let count = 0;
 
-  for (const index in array) {
-    if (typeof array[index] === "number") {
+  for (const item of array) {
+    if (typeof item === "number") {
       count++;
     }
   }
