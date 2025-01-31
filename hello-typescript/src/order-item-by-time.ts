@@ -5,8 +5,8 @@ export interface Item {
   modified_at?: string;
 }
 
-export default function OrderItemByTime(items: Item[]): Item[] {
-  let orderedItems: Item[] = { ...items };
+export default function orderItemByTime(items: Item[]): Item[] {
+  const orderedItems = [...items];
 
   for (let i = 0; i < orderedItems.length; i++) {
     for (let j = 0; j < orderedItems.length - i - 1; j++) {
