@@ -1,5 +1,6 @@
 import ReverseArray from "./reverse-array";
 import numberCountInArray from "./number-count-in-array";
+import OrderItemByTime, { Item } from "./order-item-by-time";
 
 (function () {
   const numberArray = [1, 2, 3, 4, 5];
@@ -27,4 +28,31 @@ import numberCountInArray from "./number-count-in-array";
 
   const emptyArray: unknown[] = [];
   console.log("handle empty array:", numberCountInArray(emptyArray));
+})();
+
+(function () {
+  const onlyHaveCreatedAt: Item[] = [
+    { created_at: '2022-01-03T10:00:00Z' },
+    { created_at: '2022-01-02T10:00:00Z' },
+    { created_at: '2022-01-01T10:00:00Z' },
+  ];
+  console.log("sort items by create_at when modified_at is not present:", OrderItemByTime(onlyHaveCreatedAt));
+
+  const SomeOfThemHaveModifiedAt: Item[] = [
+    { created_at: '2022-01-01T10:00:00Z', modified_at: '2022-01-03T10:00:00Z' },
+    { created_at: '2022-01-02T10:00:00Z' },
+    { created_at: '2022-01-01T10:00:00Z', modified_at: '2022-01-01T10:00:00Z' },
+  ];
+  console.log("sort items by modified_at if present:", OrderItemByTime(SomeOfThemHaveModifiedAt));
+
+  const emptyArray: Item[] = [];
+  console.log("handle an empty array:", OrderItemByTime(emptyArray));
+
+  const timestamp = '2022-01-01T10:00:00Z';
+  const SameTime: Item[] = [
+    { created_at: timestamp },
+    { created_at: timestamp, modified_at: timestamp },
+    { created_at: timestamp },
+  ];
+  console.log("handle all items with the same timestamp:", OrderItemByTime(SameTime))
 })();
