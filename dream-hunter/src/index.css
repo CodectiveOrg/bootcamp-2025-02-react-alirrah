@@ -1,8 +1,25 @@
 :root {
-  --color-white: hsl(0, 0%, 100%);
+  --color-white: hsl(0, 0%, 97%);
+  --color-black: hsl(0, 0%, 15%);
 
   --color-primary: hsl(241, 66%, 39%);
+  --color-primary-fade: hsl(247, 69%, 97%);
+  --color-primary-hover: hsl(241, 68%, 48%);
   --color-primary-outline: hsl(242, 62%, 90%);
+
+  --color-danger: hsl(0, 66%, 39%);
+  --color-danger-fade: hsl(0, 69%, 97%);
+  --color-danger-hover: hsl(0, 50%, 48%);
+  --color-danger-outline: hsl(0, 62%, 90%);
+
+  --color-surface: var(--color-white);
+  --color-text: var(--color-black);
+
+  --color-backdrop: hsl(0, 0%, 0%, 20%);
+
+  --color-border: hsl(243, 100%, 90%);
+
+  --shadow: 0 4px 140px 0 hsl(0, 0%, 0%, 33%);
 }
 
 *,
@@ -15,6 +32,9 @@
 }
 
 html {
+  accent-color: var(--color-primary);
+  caret-color: var(--color-primary);
+
   font-family: "Inter", system-ui;
 }
 
@@ -33,7 +53,11 @@ optgroup {
 }
 
 body {
+  background-color: var(--color-surface);
+
   inline-size: min(40rem, 100% - 2rem);
 
   margin-inline: auto;
+
+  color: var(--color-text);
 }
