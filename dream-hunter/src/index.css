@@ -1,3 +1,8 @@
+:root {
+  --color-primary: hsl(241, 66%, 39%);
+  --color-primary-outline: hsl(242, 62%, 90%);
+}
+
 *,
 *::before,
 *::after {
