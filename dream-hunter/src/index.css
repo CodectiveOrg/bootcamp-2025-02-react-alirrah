@@ -1,4 +1,6 @@
 :root {
+  --color-white: hsl(0, 0%, 100%);
+
   --color-primary: hsl(241, 66%, 39%);
   --color-primary-outline: hsl(242, 62%, 90%);
 }
