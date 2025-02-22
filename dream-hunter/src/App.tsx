@@ -1,6 +1,8 @@
-import "./App.module.css";
+import { ReactNode } from "react";
 
-function App() {
+import styles from "./App.module.css";
+
+function App(): ReactNode {
   return <></>;
 }
 
