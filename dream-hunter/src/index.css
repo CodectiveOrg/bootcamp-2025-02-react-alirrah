@@ -22,9 +22,6 @@
 
   --color-border: hsl(243, 100%, 90%);
 
-  --color-good-vibe: var(--color-primary-outline);
-  --color-bad-vibe: var(--color-danger-outline);
-
   --shadow: 0 4px 4px 0 hsl(0, 0%, 0%, 10%);
 }
 
