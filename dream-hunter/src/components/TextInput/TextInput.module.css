@@ -5,6 +5,8 @@
 
   padding: 0.5rem;
 
+  background-color: var(--color-foreground);
+
   border: 1px solid var(--color-primary);
   border-radius: 0.25rem;
 
@@ -12,11 +14,12 @@
     flex: 1 1 0;
 
     background-color: transparent;
-    color: var(--color-primary);
 
     block-size: 1em;
 
     border: none;
+
+    color: var(--color-primary);
 
     line-height: 1;
 
@@ -26,10 +29,9 @@
   }
 
   .suffix {
-    color: var(--color-primary);
-
     display: grid;
 
+    color: var(--color-primary);
     font-size: 1.25rem;
   }
 

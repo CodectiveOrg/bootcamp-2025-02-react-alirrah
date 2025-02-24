@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement } from "react";
+import { ComponentProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -13,11 +13,11 @@ type Props = ComponentProps<"select"> & {
   options: SelectOption[];
 };
 
-export default function Select({
+function Select({
   variant = "solid",
   options,
   ...otherProps
-}: Props): ReactElement {
+}: Props): ReactNode {
   return (
     <div className={clsx(styles["select"], styles[variant])}>
       <select {...otherProps}>
@@ -30,3 +30,5 @@ export default function Select({
     </div>
   );
 }
+
+export default Select;

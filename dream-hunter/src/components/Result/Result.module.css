@@ -1,0 +1,84 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-block-start: 1rem;
+
+  > li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    background-color: var(--color-foreground);
+
+    block-size: 4rem;
+
+    border: 1px solid var(--box-color);
+    border-radius: 0.5rem;
+
+    box-shadow: var(--shadow);
+
+    &.good {
+      --box-color: var(--color-good-vibe);
+    }
+
+    &.bad {
+      --box-color: var(--color-bad-vibe);
+    }
+
+    .date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      block-size: 100%;
+      inline-size: 2.75rem;
+
+      background-color: var(--box-color);
+
+      padding-inline: 0.5rem;
+
+      border-radius: 0.3rem 0 0 0.3rem;
+
+      text-align: center;
+    }
+
+    .detail {
+      flex: 1 1 0;
+
+      display: grid;
+      grid-template-areas:
+        "title actions"
+        "description description";
+      grid-template-columns: 1fr auto;
+      row-gap: 0.5rem;
+
+      padding-inline-end: 0.5rem;
+
+      .title {
+        grid-area: title;
+
+        font-weight: 500;
+      }
+
+      .actions {
+        grid-area: actions;
+      }
+
+      .description {
+        grid-area: description;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        color: var(--color-secondary);
+        font-size: 0.75rem;
+        font-weight: 300;
+
+        white-space: nowrap;
+      }
+    }
+  }
+}

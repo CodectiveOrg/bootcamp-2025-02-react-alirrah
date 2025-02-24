@@ -16,4 +16,5 @@ function TextInput({ suffixIcon, className, ...otherProps }: Props): ReactNode {
     </div>
   );
 }
+
 export default TextInput;

@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement } from "react";
+import { ComponentProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -16,7 +16,7 @@ type Props = ComponentProps<"button"> & {
   shape?: Shape;
 };
 
-export default function Button({
+function Button({
   color = "primary",
   variant = "solid",
   size = "medium",
@@ -24,7 +24,7 @@ export default function Button({
   className,
   children,
   ...otherProps
-}: Props): ReactElement {
+}: Props): ReactNode {
   return (
     <button
       className={clsx(
@@ -41,3 +41,5 @@ export default function Button({
     </button>
   );
 }
+
+export default Button;
