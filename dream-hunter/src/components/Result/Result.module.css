@@ -19,6 +19,8 @@
 
     box-shadow: var(--shadow);
 
+    overflow: hidden;
+
     .date {
       display: flex;
       align-items: center;
@@ -30,8 +32,6 @@
       background-color: var(--color-primary-outline);
 
       padding-inline: 0.5rem;
-
-      border-radius: inherit;
 
       text-align: center;
     }
