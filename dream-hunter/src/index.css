@@ -1,0 +1,66 @@
+:root {
+  --color-white: hsl(0, 0%, 97%);
+  --color-black: hsl(0, 0%, 15%);
+
+  --color-primary: hsl(209, 82%, 44%);
+  --color-primary-fade: hsl(209, 100%, 95%);
+  --color-primary-hover: hsl(209, 82%, 33%);
+  --color-primary-outline: hsl(209, 100%, 55%, 33%);
+
+  --color-secondary: hsl(231, 13%, 56%);
+
+  --color-danger: hsl(0, 82%, 44%);
+  --color-danger-fade: hsl(0, 100%, 95%);
+  --color-danger-hover: hsl(0, 82%, 33%);
+  --color-danger-outline: hsl(0, 100%, 55%, 33%);
+
+  --color-surface: hsl(240, 40%, 98%);
+  --color-foreground: var(--color-white);
+  --color-text: var(--color-black);
+
+  --color-backdrop: hsl(0, 0%, 0%, 20%);
+
+  --color-border: hsl(243, 100%, 90%);
+
+  --shadow: 0 4px 4px 0 hsl(0, 0%, 0%, 10%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  accent-color: var(--color-primary);
+  caret-color: var(--color-primary);
+
+  font-family: "Inter", system-ui;
+}
+
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+  font: inherit;
+}
+
+body {
+  background-color: var(--color-surface);
+
+  inline-size: min(40rem, 100% - 2rem);
+
+  margin-inline: auto;
+
+  color: var(--color-text);
+}

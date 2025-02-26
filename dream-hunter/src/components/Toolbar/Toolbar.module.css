@@ -1,0 +1,10 @@
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+
+  .input {
+    flex: 1;
+
+    background-color: var(--color-foreground);
+  }
+}
