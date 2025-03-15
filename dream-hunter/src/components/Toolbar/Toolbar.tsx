@@ -1,8 +1,10 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 
 import TextInput from "../TextInput/TextInput.tsx";
 import Select from "../Select/Select.tsx";
 import Button from "../Button/Button.tsx";
+
+import { ThemeContext } from "../../contexts/ThemeContext.ts";
 
 import MingcuteSearch3Line from "../../icons/MingcuteSearch3Line.tsx";
 import MingcuteMoonLine from "../../icons/MingcuteMoonLine.tsx";
@@ -11,7 +13,7 @@ import MingcuteSunLine from "../../icons/MingcuteSunLine.tsx";
 import styles from "./Toolbar.module.css";
 
 function Toolbar(): ReactNode {
-  const theme = "light";
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className={styles.toolbar}>
@@ -27,7 +29,12 @@ function Toolbar(): ReactNode {
           { value: "bad", label: "Bad" },
         ]}
       />
-      <Button variant="solid" size="medium" shape="square">
+      <Button
+        variant="solid"
+        size="medium"
+        shape="square"
+        onClick={toggleTheme}
+      >
         {theme === "light" ? <MingcuteMoonLine /> : <MingcuteSunLine />}
       </Button>
     </div>

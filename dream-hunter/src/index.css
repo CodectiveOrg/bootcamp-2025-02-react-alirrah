@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light;
+
   --color-white: hsl(0, 0%, 97%);
   --color-black: hsl(0, 0%, 15%);
 
@@ -23,6 +25,14 @@
   --color-border: hsl(243, 100%, 90%);
 
   --shadow: 0 4px 4px 0 hsl(0, 0%, 0%, 10%);
+
+  &[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-surface: hsl(0, 0%, 10%);
+    --color-foreground: var(--color-black);
+    --color-text: var(--color-white);
+  }
 }
 
 *,

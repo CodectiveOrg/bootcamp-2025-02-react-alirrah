@@ -4,6 +4,8 @@
   inset-inline-end: 1rem;
 
   dialog {
+    background-color: var(--color-foreground);
+
     inline-size: 100%;
     max-inline-size: 30rem;
 
@@ -11,6 +13,8 @@
 
     border: none;
     border-radius: 0.5rem;
+
+    color: var(--color-text);
 
     &::backdrop {
       background-color: var(--color-backdrop);
