@@ -13,7 +13,7 @@ import { Dream } from "../../types/dream.ts";
 import styles from "./Result.module.css";
 
 function Result(): ReactNode {
-  const { dreams, removeDream } = useContext(DreamsContext);
+  const { filteredDreams, removeDream } = useContext(DreamsContext);
 
   const [editingDream, setEditingDream] = useState<Dream | null>(null);
 
@@ -27,7 +27,7 @@ function Result(): ReactNode {
   return (
     <>
       <ul className={styles.result}>
-        {dreams.map((dream) => (
+        {filteredDreams.map((dream) => (
           <li key={dream.id}>
             <div className={styles.date}>
               {new Date(dream.date).toLocaleDateString("default", {
