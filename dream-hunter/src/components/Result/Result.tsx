@@ -7,8 +7,6 @@ import { DreamsContext } from "../../contexts/DreamsContext.ts";
 
 import MingcuteEdit2Line from "../../icons/MingcuteEdit2Line.tsx";
 import MingcuteDelete2Line from "../../icons/MingcuteDelete2Line.tsx";
-import TwemojiLoudlyCryingFace from "../../icons/TwemojiLoudlyCryingFace.tsx";
-import TwemojiSmilingFaceWithHearts from "../../icons/TwemojiSmilingFaceWithHearts.tsx";
 
 import { Dream } from "../../types/dream.ts";
 
@@ -42,11 +40,7 @@ function Result(): ReactNode {
             </div>
             <div className={styles.detail}>
               <div className={styles.title}>
-                {dream.vibe === "good" ? (
-                  <TwemojiSmilingFaceWithHearts />
-                ) : (
-                  <TwemojiLoudlyCryingFace />
-                )}
+                {dream.vibe === "good" ? "🥰" : "😭"}
                 <p>{dream.title}</p>
               </div>
               <div className={styles.actions}>
