@@ -5,16 +5,24 @@ import Toolbar from "./components/Toolbar/Toolbar.tsx";
 import Result from "./components/Result/Result.tsx";
 import Create from "./components/Create/Create.tsx";
 
+import ThemeProvider from "./providers/ThemeProvider.tsx";
+import FiltersProvider from "./providers/FiltersProvider.tsx";
+import DreamsProvider from "./providers/DreamsProvider.tsx";
+
 function App(): ReactNode {
   return (
-    <>
-      <Header />
-      <main>
-        <Toolbar />
-        <Result />
-      </main>
-      <Create />
-    </>
+    <ThemeProvider>
+      <FiltersProvider>
+        <DreamsProvider>
+          <Header />
+          <main>
+            <Toolbar />
+            <Result />
+          </main>
+          <Create />
+        </DreamsProvider>
+      </FiltersProvider>
+    </ThemeProvider>
   );
 }
 

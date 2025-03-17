@@ -1,80 +1,74 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext, useRef, useState } from "react";
 
 import Button from "../Button/Button.tsx";
+import DreamModal, { DreamModalRef } from "../DreamModal/DreamModal.tsx";
+
+import { DreamsContext } from "../../contexts/DreamsContext.ts";
 
 import MingcuteEdit2Line from "../../icons/MingcuteEdit2Line.tsx";
 import MingcuteDelete2Line from "../../icons/MingcuteDelete2Line.tsx";
-import TwemojiLoudlyCryingFace from "../../icons/TwemojiLoudlyCryingFace.tsx";
-import TwemojiSmilingFaceWithHearts from "../../icons/TwemojiSmilingFaceWithHearts.tsx";
 
 import { Dream } from "../../types/dream.ts";
 
 import styles from "./Result.module.css";
 
-const dreams: Dream[] = [
-  {
-    id: "1",
-    title: "School 1",
-    description: "Lorem ipsum dolor sit amet,",
-    date: new Date(2025, 11, 5),
-    vibe: "good",
-  },
-
-  {
-    id: "2",
-    title: "School 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, unde.",
-    date: new Date(2025, 9, 29),
-    vibe: "good",
-  },
-  {
-    id: "3",
-    title: "School 3",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    date: new Date(2025, 7, 14),
-    vibe: "bad",
-  },
-];
-
 function Result(): ReactNode {
+  const { filteredDreams, removeDream } = useContext(DreamsContext);
+
+  const [editingDream, setEditingDream] = useState<Dream | null>(null);
+
+  const modalRef = useRef<DreamModalRef>(null);
+
+  const editButtonClickHandler = (dream: Dream): void => {
+    setEditingDream(dream);
+    modalRef.current?.showModal();
+  };
+
   return (
-    <ul className={styles.result}>
-      {dreams.map((dream) => (
-        <li key={dream.id}>
-          <div className={styles.date}>
-            {dream.date.toLocaleDateString("default", { day: "numeric" })}
-            <br />
-            {dream.date.toLocaleDateString("default", { month: "short" })}
-          </div>
-          <div className={styles.detail}>
-            <div className={styles.title}>
-              {dream.vibe === "good" ? (
-                <TwemojiSmilingFaceWithHearts />
-              ) : (
-                <TwemojiLoudlyCryingFace />
-              )}
-              <p>{dream.title}</p>
+    <>
+      <ul className={styles.result}>
+        {filteredDreams.map((dream) => (
+          <li key={dream.id}>
+            <div className={styles.date}>
+              {new Date(dream.date).toLocaleDateString("default", {
+                day: "numeric",
+              })}
+              <br />
+              {new Date(dream.date).toLocaleDateString("default", {
+                month: "short",
+              })}
             </div>
-            <div className={styles.actions}>
-              <Button variant="ghost" size="small" shape="square">
-                <MingcuteEdit2Line />
-              </Button>
-              <Button
-                color="danger"
-                variant="ghost"
-                size="small"
-                shape="square"
-              >
-                <MingcuteDelete2Line />
-              </Button>
+            <div className={styles.detail}>
+              <div className={styles.title}>
+                {dream.vibe === "good" ? "🥰" : "😭"}
+                <p>{dream.title}</p>
+              </div>
+              <div className={styles.actions}>
+                <Button
+                  variant="ghost"
+                  size="small"
+                  shape="square"
+                  onClick={() => editButtonClickHandler(dream)}
+                >
+                  <MingcuteEdit2Line />
+                </Button>
+                <Button
+                  color="danger"
+                  variant="ghost"
+                  size="small"
+                  shape="square"
+                  onClick={() => removeDream(dream.id)}
+                >
+                  <MingcuteDelete2Line />
+                </Button>
+              </div>
+              <div className={styles.description}>{dream.description}</div>
             </div>
-            <div className={styles.description}>{dream.description}</div>
-          </div>
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul>
+      <DreamModal ref={modalRef} editingDream={editingDream ?? undefined} />
+    </>
   );
 }
 
