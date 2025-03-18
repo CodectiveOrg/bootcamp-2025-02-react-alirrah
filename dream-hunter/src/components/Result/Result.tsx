@@ -1,5 +1,7 @@
 import { ReactNode, useContext, useRef, useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import Button from "../Button/Button.tsx";
 import DreamModal, { DreamModalRef } from "../DreamModal/DreamModal.tsx";
 
@@ -9,10 +11,11 @@ import MingcuteEdit2Line from "../../icons/MingcuteEdit2Line.tsx";
 import MingcuteDelete2Line from "../../icons/MingcuteDelete2Line.tsx";
 
 import { Dream } from "../../types/dream.ts";
-
 import styles from "./Result.module.css";
 
 function Result(): ReactNode {
+  const { i18n } = useTranslation();
+
   const { filteredDreams, removeDream } = useContext(DreamsContext);
 
   const [editingDream, setEditingDream] = useState<Dream | null>(null);
@@ -30,13 +33,19 @@ function Result(): ReactNode {
         {filteredDreams.map((dream) => (
           <li key={dream.id}>
             <div className={styles.date}>
-              {new Date(dream.date).toLocaleDateString("default", {
-                day: "numeric",
-              })}
+              {new Date(dream.date).toLocaleDateString(
+                i18n.language === "fa" ? "fa-IR-u-nu-latn" : "en-US",
+                {
+                  day: "numeric",
+                },
+              )}
               <br />
-              {new Date(dream.date).toLocaleDateString("default", {
-                month: "short",
-              })}
+              {new Date(dream.date).toLocaleDateString(
+                i18n.language === "fa" ? "fa-IR-u-nu-latn" : "en-US",
+                {
+                  month: "short",
+                },
+              )}
             </div>
             <div className={styles.detail}>
               <div className={styles.title}>
