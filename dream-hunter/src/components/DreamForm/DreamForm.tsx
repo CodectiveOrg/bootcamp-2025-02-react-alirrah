@@ -13,6 +13,8 @@ import { DreamsContext } from "../../contexts/DreamsContext.ts";
 import { Dream } from "../../types/dream.ts";
 import { Vibe } from "../../types/vibe.ts";
 
+import { validateDream } from "../../validations/DreamValidation.ts";
+
 import styles from "./DreamForm.module.css";
 
 type Props = {
@@ -38,6 +40,10 @@ function DreamForm({ editingDream, onCancel, onSubmit }: Props): ReactNode {
 
   const formSubmitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+
+    if (!validateDream(dream)) {
+      return;
+    }
 
     if (editingDream) {
       editDream(dream);
