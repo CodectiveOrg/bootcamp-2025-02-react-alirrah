@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "شکارچی خواب"
+  },
+  "dreams": {
+    "create": {
+      "title": "ایجاد خواب جدید",
+      "edit": "ویرایش {{title}}"
+    },
+    "form": {
+      "title": {
+        "placeholder": "عنوان خود را وارد کنید..."
+      },
+      "description": {
+        "placeholder": "توضیحات خود را وارد کنید..."
+      },
+      "vibe": {
+        "all": "همه",
+        "good": "خوب",
+        "bad": "بد"
+      }
+    },
+    "actions": {
+      "create": "ایجاد",
+      "confirm": "تایید",
+      "cancel": "لغو"
+    }
+  },
+  "validation": {
+    "title": {
+      "required": "عنوان الزامی است",
+      "length": "عنوان باید بین {{minTitleLength}} و {{maxTitleLength}} کاراکتر باشد"
+    },
+    "description": {
+      "required": "توضیحات الزامی است",
+      "length": "توضیحات باید کمتر از {{maxDescriptionLength}} کاراکتر باشد"
+    },
+    "date": {
+      "required": "تاریخ الزامی است",
+      "invalid": "فرمت تاریخ نامعتبر است",
+      "future": "تاریخ انتخاب شده هنوز فرانرسیده است"
+    },
+    "vibe": {
+      "required": "حس درونی الزامی است",
+      "invalid": "حس درونی انتخاب شده نامعتبر است"
+    }
+  },
+  "toolbar": {
+    "search": {
+      "placeholder": "جستجوی خواب‌ها..."
+    }
+  }
+}

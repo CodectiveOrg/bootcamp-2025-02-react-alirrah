@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Dream Hunter"
+  },
+  "dreams": {
+    "create": {
+      "title": "Create a New Dream",
+      "edit": "Edit {{title}}"
+    },
+    "form": {
+      "title": {
+        "placeholder": "Input your title..."
+      },
+      "description": {
+        "placeholder": "Input your description..."
+      },
+      "vibe": {
+        "all": "All",
+        "good": "Good",
+        "bad": "Bad"
+      }
+    },
+    "actions": {
+      "create": "Create",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    }
+  },
+  "validation": {
+    "title": {
+      "required": "Title is required",
+      "length": "Title must be between {{minTitleLength}} and {{maxTitleLength}} characters"
+    },
+    "description": {
+      "required": "Description is required",
+      "length": "Description must be less than {{maxDescriptionLength}} characters"
+    },
+    "date": {
+      "required": "Date is required",
+      "invalid": "Invalid date format",
+      "future": "The selected date has not yet arrived"
+    },
+    "vibe": {
+      "required": "Vibe is required",
+      "invalid": "Invalid vide selected"
+    }
+  },
+  "toolbar": {
+    "search": {
+      "placeholder": "Search Dreams..."
+    }
+  }
+}
